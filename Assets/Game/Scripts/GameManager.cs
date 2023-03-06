@@ -3,5 +3,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Transform player;
-    void Start() => player.localPosition = new(0f, 1.8f, 0f);
+    public Vector3 spawnPosition = new Vector3(250f, 52f, 250f);
+    void Start() => player.localPosition = spawnPosition;
 }
