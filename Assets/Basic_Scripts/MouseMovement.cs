@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MouseMovement : MonoBehaviour
 {
+    public Camera cam;
     public float mouseSensitivity = 100f;
     private float xRotation = 0, yRotation = 0;
 
@@ -14,6 +15,7 @@ public class MouseMovement : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         yRotation += mouseX;
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        transform.localRotation = Quaternion.Euler(0f, yRotation, 0f);
+        cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 }
