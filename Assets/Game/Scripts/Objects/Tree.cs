@@ -3,6 +3,8 @@ using UnityEngine;
 public class Tree : Entity
 {
     public float hp;
+    public override EntityType Type => EntityType.Tree;
+
     private void Start() => hp = transform.localScale.z * 1000;
     public void TreeDamage(Damage dmg)
     {

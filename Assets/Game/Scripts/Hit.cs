@@ -12,23 +12,20 @@ public class Hit : MonoBehaviour
     private void UpdateTool()
     {
         Transform toolT = GameObject.FindGameObjectWithTag("tool").transform;
-        if (toolT != null)
-            tool = toolT.GetComponent<Tool>();
-        else
-            tool = null;
+        tool = toolT == null ? null : toolT.GetComponent<Tool>();
     }
 
     private void OnMouseDown()
     {
         UpdateTool();
-        if (tool != null)
+        if (tool != null && Vector3.Distance(transform.position, tool.transform.position) <= 3f)
             switch (tool.toolKind)
             {
                 case ToolKind.Axe:
                 {
-                    switch (transform.tag)
+                    switch (GetComponent<Entity>().Type)
                     {
-                        case "tree":
+                        case EntityType.Tree:
                             SendMessage($"TreeDamage", new Damage(GetComponent<Entity>().ID, 300));
                             break;
                     }
