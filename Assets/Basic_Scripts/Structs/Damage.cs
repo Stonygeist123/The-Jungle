@@ -1,11 +1,11 @@
 ﻿public readonly struct Damage
 {
-    public Damage(int id, float dmg)
+    public Damage(int id, uint dmg)
     {
         ID = id;
         Dmg = dmg;
     }
 
     public int ID { get; }
-    public float Dmg { get; }
+    public uint Dmg { get; }
 }
